@@ -12,27 +12,27 @@ class Cards extends Component {
                     id: 1,
                     name: "apple",
                     paired: false,
-                    url: "",
+                    url: "https://is4-ssl.mzstatic.com/image/thumb/Purple128/v4/3d/d0/96/3dd096d8-3651-4fa9-afbd-f3bb62ba3981/source/256x256bb.jpg",
                     counter: false,
                 }, {
                     id: 2,
                     name: "apple",
                     paired: false,
-                    url: "",
+                    url: "https://is4-ssl.mzstatic.com/image/thumb/Purple128/v4/3d/d0/96/3dd096d8-3651-4fa9-afbd-f3bb62ba3981/source/256x256bb.jpg",
                     counter: false,
                 },
                 {
                     id: 3,
                     name: "pear",
                     paired: false,
-                    url: "",
+                    url: "https://is4-ssl.mzstatic.com/image/thumb/Purple128/v4/3d/d0/96/3dd096d8-3651-4fa9-afbd-f3bb62ba3981/source/256x256bb.jpg",
                     counter: false,
                 }, 
                 {
                     id: 4,
                     name: "pear",
                     paired: false,
-                    url: "",
+                    url: "https://is4-ssl.mzstatic.com/image/thumb/Purple128/v4/3d/d0/96/3dd096d8-3651-4fa9-afbd-f3bb62ba3981/source/256x256bb.jpg",
                     counter: false,
                 }
             ],
@@ -46,12 +46,13 @@ class Cards extends Component {
         newCards[index].counter = !this.state.cards[index].counter;
         this.setState({ newCards });
         this.findPair();
+        
     }
 
     findPair = () => {
         let newArr = [];
         this.state.cards.filter((item, index) => {
-            if (item.counter == true) {
+            if (item.counter == true && item.paired == false) {
                 return newArr.push(item);
             }
         });
@@ -63,6 +64,7 @@ class Cards extends Component {
                 return item;
         })
     };
+    console.log(newArr);
     }
 
 
@@ -70,9 +72,13 @@ class Cards extends Component {
 
 render() {
     // const {children} =this.props;
-    console.log(this.state.cards)
+    // console.log(this.state.cards)
     return (
         <>
+        <pre>
+            {JSON.stringify(this.state.cards, null, 2)}
+        </pre>
+        
             {this.state.cards.map((item, index) => (
                 <PairCard key={item.id} onCard={this.cardStatus} item={item} index={index} />
             ))}

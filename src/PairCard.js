@@ -19,12 +19,23 @@ import React, { Component } from "react";
        
 
     render() {
-    // const {children} =this.props;
+        const styles= {
+            margin: '20px',
+            width: '200px',
+            height: '200px',
+            backgroundImage: (this.props.item.counter === false ? "url(" + "https://images.pexels.com/photos/34153/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350" + ")": `url("${this.props.item.url}")`),
+            display: 'inline-block',
+            // background: (this.props.item.paired === true ? 'rgba(0, 0, 0, 0.5)' : 'rgba(0, 0, 0, 1)'),
+            opacity: (this.props.item.paired === true ? '0': '1'),
+            
+          }
+
+          
 
 
     return (
         <>
-            <p onClick={() => this.props.onCard(this.props.index)}>
+            <p onClick={() => this.props.onCard(this.props.index)} style={styles}>
                 {this.props.item.counter === false ? 'Clicked!!!!' : 'Not Clicked!!!!'}{this.props.item.name}
             </p>
 
@@ -33,6 +44,7 @@ import React, { Component } from "react";
     }
     }
 export default PairCard;
+
 
 
             {/* <p onClick={ this.handleClick }>this.state.counter{children}</p>
