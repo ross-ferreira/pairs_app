@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
-import Cards from './Cards'
+import Cards from './components/Cards'
 import './App.css';
 
 function App() {

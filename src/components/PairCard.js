@@ -23,15 +23,16 @@ import React, { Component } from "react";
             margin: '20px',
             width: '200px',
             height: '200px',
-            backgroundImage: (this.props.item.counter === false ? "url(" + "https://images.pexels.com/photos/34153/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350" + ")": `url("${this.props.item.url}")`),
+            backgroundImage: (this.props.item.counter === false ? "url(" + "https://i.ya-webdesign.com/images/pear-clipart-yellow-pear-23.png" + ")": `url("${this.props.item.url}")`),
+            backgroundSize: 'contain',
+            backgroundRepeat  : 'no-repeat',
+            backgroundPosition: 'center',
             display: 'inline-block',
-            // background: (this.props.item.paired === true ? 'rgba(0, 0, 0, 0.5)' : 'rgba(0, 0, 0, 1)'),
             opacity: (this.props.item.paired === true ? '0': '1'),
+            border: 'grey solid 3px',
+            padding: '5px',
             
           }
-
-          
-
 
     return (
         <>
@@ -44,17 +45,3 @@ import React, { Component } from "react";
     }
     }
 export default PairCard;
-
-
-
-            {/* <p onClick={ this.handleClick }>this.state.counter{children}</p>
-            <p >Clicked!!!!!</p> */}
-            {/* {this.state.cards.map((item,index)=>(
-                <p key={index} onClick={ this.handleClick }>
-                    {this.state.counter === false ? 'Clicked!!!!' : 'Not Clicked!!!!'}
-                </p>
-            ))
-            } */}
-                {/* <p onClick={ this.handleClick }>
-                    {this.state.cards[0].count == false ? 'Clicked!!!!' : 'Not Clicked!!!!'}
-                </p> */}
