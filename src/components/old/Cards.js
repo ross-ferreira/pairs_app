@@ -119,8 +119,6 @@ class Cards extends Component {
     }
     
 
-    // onClick={() => this.props.onCard(this.props.index)}
-
 render() {
     // const {children} =this.props;
     // console.log(this.state.cards)

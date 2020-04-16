@@ -1,19 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import Cards from './components/Cards'
+import { HashRouter as Router, Route,Switch } from "react-router-dom";
+import Cards from './components/old/Cards'
 import './App.css';
+import CardsNew from './components/CardsNew';
 
-function App() {
-  return (
-    <>
-      <header>
-        <h1>
-          Pairs Game
-        </h1>
-      </header>
-      <Cards/>
-    </>
+const App = () => (
+  <React.Fragment>
+  <Router>
+    {/* <Header/> */}
+    <Route exact path="/">
+    <header>
+    <h1>
+      Pairs Game
+    </h1>
+  </header>
+  {/* <Cards/> */}
+  <CardsNew/>
+    </Route>
+  </Router>
+</React.Fragment>
   );
-}
 
 export default App;
