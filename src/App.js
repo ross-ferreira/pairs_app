@@ -1,21 +1,29 @@
 import React from 'react';
 import { HashRouter as Router, Route,Switch } from "react-router-dom";
-import Cards from './components/old/Cards'
+
+
 import './App.css';
+
 import CardsNew from './components/CardsNew';
+import ScorePage from './components/ScorePage';
+import Header from './components/Header';
+import HeaderHome from './components/HeaderHome';
+import WelcomePage from './components/WelcomePage';
 
 const App = () => (
   <React.Fragment>
   <Router>
-    {/* <Header/> */}
     <Route exact path="/">
-    <header>
-    <h1>
-      Pairs Game
-    </h1>
-  </header>
-  {/* <Cards/> */}
-  <CardsNew/>
+      <HeaderHome/>
+      <WelcomePage/>
+    </Route>
+    <Route exact path="/game">
+      <Header/>
+      <CardsNew/>
+    </Route>
+    <Route exact path="/endgame">
+      <Header/>
+      <ScorePage/>
     </Route>
   </Router>
 </React.Fragment>

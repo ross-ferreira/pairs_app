@@ -2,11 +2,10 @@ import React, { useState, Component, useEffect } from "react";
 
 import { connect } from 'react-redux';
 
-const mapStateToProps = ({cards,score}) => {
+const mapStateToProps = ({score}) => {
     
     return {
         // srcImage: state.images[(state.counter -1)].url,
-        cards:cards,
         score:score,
     }
 }
@@ -14,15 +13,20 @@ const mapStateToProps = ({cards,score}) => {
 
 
 const Score =({
-    cards,
     score,
-    handleShuffle,
-    handleCardClick,
 }) => {
 
+    return (
+        <>
+        <div class="score">
+            SCORE: {score}
+        </div>
+        </>
+    );
+}
 
-    const [cardClicked, setCardClicked] = useState(cards);
-    const [pairs, setPairs] = useState(cards);
+export default connect(mapStateToProps)(Score);
+
 
 
 
@@ -47,14 +51,3 @@ const Score =({
     //     this.setState({ score: tot});
     // }
     
-
-    return (
-        <>
-        <div class="score">
-            SCORE: {score}
-        </div>
-        </>
-    );
-}
-
-export default connect(mapStateToProps)(Score);

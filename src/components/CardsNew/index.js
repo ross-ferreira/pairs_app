@@ -5,23 +5,20 @@ import CardsNew from './CardsNew';
 import { shuffleCards, updateClick } from '../../data/actions';
 
 
-const mapStateToProps = ({cards,score}) => {
+const mapStateToProps = (state) => {
     
     return {
         // srcImage: state.images[(state.counter -1)].url,
-        cards:cards,
-        score:score,
+        cards:state.cards,
+        score:state.score,
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
         
-        // handleFormSubmit: (valueR1,r2Pairs) => { 
-        //     dispatch (addRound1Results(valueR1,r2Pairs));            
-        // },
-        handleShuffle:()=>{
-            dispatch (shuffleCards())
+        handleShuffle:(valueShuff)=>{
+            dispatch (shuffleCards(valueShuff))
         },
         handleCardClick:(valueC,ValueS)=>{
             dispatch (updateClick(valueC,ValueS));

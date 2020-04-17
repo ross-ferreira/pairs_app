@@ -1,34 +1,28 @@
-import React, { Component } from "react";
+import React, { useState, Component, useEffect } from "react";
 
-// we use className to add classes for Bootstrap styling
+import { connect } from 'react-redux';
 
- class PairCard  extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = { 
-            // counter: this.props.item.counter,
-        };
+const mapStateToProps = ({cards}) => {
+    
+    return {
+        // srcImage: state.images[(state.counter -1)].url,
+        cards:cards,
     }
+}
 
-    // handleClick() {
-    //     let current = this.state.counter;
-    //     this.setState({ counter: !current });
-    //    }
 
-       
+const PairCard =({index,item, onCard}) => {
 
-    render() {
-        const styles= {
+    const styles= {
             margin: '20px',
             width: '200px',
             height: '200px',
-            backgroundImage: (this.props.item.counter === false ? "url(" + "https://i.ya-webdesign.com/images/pear-clipart-yellow-pear-23.png" + ")": `url("${this.props.item.url}")`),
+            backgroundImage: (item.counter === false ? "url(" + "https://i.ya-webdesign.com/images/pear-clipart-yellow-pear-23.png" + ")": `url("${item.url}")`),
             backgroundSize: 'contain',
             backgroundRepeat  : 'no-repeat',
             backgroundPosition: 'center',
             display: 'inline-block',
-            opacity: (this.props.item.paired === true ? '0': '1'),
+            opacity: (item.paired === true ? '0': '1'),
             border: 'grey solid 3px',
             padding: '5px',
             
@@ -36,12 +30,12 @@ import React, { Component } from "react";
 
     return (
         <>
-            <p onClick={() => this.props.onCard(this.props.index)} style={styles}>
-                {this.props.item.counter === false ? 'Clicked!!!!' : 'Not Clicked!!!!'}{this.props.item.name}
+            <p onClick={() => onCard(index)} style={styles}>
+                {item.counter === false ? 'Clicked!!!!' : 'Not Clicked!!!!'}{item.name}
             </p>
 
         </>
     );
     }
-    }
-export default PairCard;
+    
+    export default connect(mapStateToProps)(PairCard);

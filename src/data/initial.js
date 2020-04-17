@@ -1,4 +1,4 @@
-const inital = {
+export default  {
     score:0,
     cards: [
         {
@@ -57,6 +57,4 @@ const inital = {
         }
     ],
 }
-
-export default inital;
 

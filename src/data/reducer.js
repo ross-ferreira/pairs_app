@@ -2,13 +2,14 @@ import initial from '../data/initial';
 
 const counterIncrease = state => ({ ...state, count: state.count + 1 });
 
-const shuffle = arr => arr.sort(() => Math.random() - 0.5);
+// const shuffle = arr => arr.sort(() => Math.random() - 0.5);
 
-const shuffleCards = (state) => ({ ...state, cards: shuffle(state.cards)})
+// const shuffleCards = (state) => ({ ...state, cards: shuffle(state.cards)})
 
-// const shuffleCards= state => ({...state, cards: state.cards.sort(() => Math.random() - 0.5)});
+const shuffleCards = (state,{arrayShuff}) => ({ ...state, cards: arrayShuff })
 
 const clickUpdate = (state,{cardClick}) => ({ ...state, cards: cardClick })
+
 
 const scoreUpdate = (state,{scoreChange}) => ({ ...state, score: scoreChange })
 
@@ -18,15 +19,20 @@ export default (state, action) => {
   
     switch (action.type) {
         case "INCREMENT": return counterIncrease(state);
-        case "SHUFFLE": return shuffleCards(state);
+        case "SHUFFLE": return shuffleCards(state,action);
         case "CLICKSTATUS": return scoreUpdate(clickUpdate(state,action),action);;
         case "RESET": return initial;
         default: return state;
         }
     };
+console.log("init",initial)
 
+// const shuffleCards= state => ({...state, cards: state.cards.sort(() => Math.random() - 0.5)});
 
-
+    // const rootReducer = (state, action) => { if (action.type === 'RESET_APP') { 
+    //     state = undefined;} 
+    //         return appReducer(state, action);
+    //     }
 
 
 

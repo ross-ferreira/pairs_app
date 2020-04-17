@@ -1,6 +1,7 @@
-export const shuffleCards = () => {
+export const shuffleCards = (valueShuff) => {
     return {
       type: "SHUFFLE",
+      arrayShuff:valueShuff,
     }; 
   };
 
@@ -12,28 +13,10 @@ export const shuffleCards = () => {
     }; 
   };  
 
-  
-//   export const addPlayerNameP1 = (valueP) => {
-//     return {
-//       type: 'ADDPLAYERNAMEP1', 
-//       playerName: { 
-//         playerName: valueP,
-//         gamesWon: 0,
-//         totalPoints: 0,
-//         score:0,
-//         gamesPlayed: 0
-//       },
-//   }; 
-//   };
-  
-  
-//   export const addRound1Results = (valueR1,r2Pairs) => {
-//     return {
-//       type: "ADDR1RESULTS",
-//         resultsR1: valueR1,
-//         r2Pairs: r2Pairs,
-//   }; 
-//   };
-  
+  export const reset = () => {
+    return {
+      type: "RESET",
+    }; 
+  };
   
   
