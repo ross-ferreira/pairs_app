@@ -10,8 +10,11 @@ const shuffleCards = (state,{arrayShuff}) => ({ ...state, cards: arrayShuff })
 
 const clickUpdate = (state,{cardClick}) => ({ ...state, cards: cardClick })
 
+const pairs = (state,{valuePair}) => ({ ...state, score: valuePair })
 
-const scoreUpdate = (state,{scoreChange}) => ({ ...state, score: scoreChange })
+// const scoreUpdate = (state,{scoreChange}) => ({ ...state, score: scoreChange })
+
+const scoreIncr = (state,{scoreVal}) => ({ ...state, score: scoreVal })
 
 
 
@@ -20,7 +23,8 @@ export default (state, action) => {
     switch (action.type) {
         case "INCREMENT": return counterIncrease(state);
         case "SHUFFLE": return shuffleCards(state,action);
-        case "CLICKSTATUS": return scoreUpdate(clickUpdate(state,action),action);;
+        case "CLICKSTATUS": return pairs(clickUpdate(state,action),action);;
+        case "SCOREUPDATE": return scoreIncr(state,action);
         case "RESET": return initial;
         default: return state;
         }

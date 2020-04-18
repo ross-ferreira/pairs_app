@@ -2,6 +2,8 @@ import React, { useState, Component, useEffect } from "react";
 
 import { Link } from 'react-router-dom';
 
+import { Redirect } from 'react-router-dom';
+
 import PairCard from '../PairCard';
 import CountDown from "../CountDown/";
 
@@ -10,24 +12,18 @@ const CardsNew = ({
     score,
     handleShuffle,
     handleCardClick,
+    handleScore,
 }) => {
 
     useEffect(() => {
         handleShuffle(shuffle());
     }, []);
-
-
+        
     const shuffle = () => {
         let arrShuff = [...cards]
         arrShuff.sort(() => Math.random() - 0.5)
         return arrShuff
     };
-    // let sortedArray = [...originalArray].sort(compareFunction);
-
-    // const [cardClicked, setCardClicked] = useState(cards);
-    const [pairs, setPairs] = useState(cards);
-    // const [scoreinput, setScore] = useState(score);
-
 
     const clicker = (index) => {
         const newCards = [...cards];
@@ -59,7 +55,7 @@ const CardsNew = ({
         return cards;
     }
 
-    console.log("pairs",findPair());
+    console.log("pairs", findPair());
 
     const updateScore = () => {
         let arr2 = [];
@@ -71,26 +67,28 @@ const CardsNew = ({
 
         let tot = (arr2.length / 2)
         return tot;
-    }
 
-    // console.log("score", scoreinput)
+    }
 
     const handleClick = (index) => {
         // index.preventDefault();
-        // setCardClicked(clicker(index));
-        setPairs(findPair());
-        // setScore(updateScore());
-        handleCardClick(clicker(index), updateScore(),findPair());
-
+        handleCardClick(clicker(index), findPair());
+        // findPair();
+        handleScore(updateScore());
     };
+
+
+    console.log("score", updateScore())
+
 
     return (
         <>
             {/* <pre>
             {JSON.stringify(this.state.cards, null, 2)}
         </pre> */}
+            {(updateScore() > 3)? <Redirect to="/endgame"/>:null}
             <div class="score">
-                SCORE: {score}
+                SCORE: {updateScore()}
             </div>
             <div class="timer">
                 <CountDown />
@@ -101,7 +99,7 @@ const CardsNew = ({
                 ))}
             </div>
             <Link to="/endgame">
-                <button> END GAME </button>
+                <button type="submit" onClick={handleScore(updateScore())}> END GAME </button>
             </Link>
 
 
@@ -111,17 +109,23 @@ const CardsNew = ({
 
 export default CardsNew;
 
-        // ...state, 
-        // cards:[
-        //     ...state.cards,
-        //     cards[index]:{
-        //         ...state.cards[index],
-        //         counter: 
-        //     }
-        // ]
+// ...state, 
+// cards:[
+//     ...state.cards,
+//     cards[index]:{
+//         ...state.cards[index],
+//         counter: 
+//     }
+// ]
 
 // onCard={()=>{handleClick(index)}}
 
+
+// let sortedArray = [...originalArray].sort(compareFunction);
+
+// const [cardClicked, setCardClicked] = useState(cards);
+// const [pairs, setPairs] = useState(cards);
+// const [scoreinput, setScore] = useState(score);
 
 // state = {
 //     school: {

@@ -5,13 +5,15 @@ export const shuffleCards = (valueShuff) => {
     }; 
   };
 
-  export const updateClick = (valueC,ValueS) => {
+  export const updateClick = (valueC,valuePair,ValueS) => {
     return {
       type: 'CLICKSTATUS', 
       cardClick: valueC,
+      valuePair:valuePair,
       scoreChange:ValueS,
     }; 
-  };  
+  };
+  
 
   export const reset = () => {
     return {
@@ -19,4 +21,12 @@ export const shuffleCards = (valueShuff) => {
     }; 
   };
   
+
+  export const updateScore = (scoreVal) => {
+    return {
+      type: 'SCOREUPDATE', 
+      scoreVal: scoreVal,
+    }; 
+  }; 
+
   

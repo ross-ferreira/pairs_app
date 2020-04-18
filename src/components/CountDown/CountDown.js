@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import { Redirect } from 'react-router-dom';
+
 class CountDown extends Component {
   constructor(props) {
     super(props);
@@ -46,8 +48,8 @@ class CountDown extends Component {
     }
   }
   timeExpired(){
-
     return this.state.seconds === 0? this.resetTimer(): null;
+    // return this.state.seconds === 0? <Redirect to="/endgame"/>: null;
     // return this.state.seconds === 0? this.props.timerExpired(this.resetTimer()): null;
   }
 
@@ -62,8 +64,13 @@ class CountDown extends Component {
     let warning = (timer <= 5 ? { color: 'red' } : { color: 'rgb(246, 170, 25)' });
     this.timeExpired();
     // console.log(this.props);
+    // {(updateScore() > 3)? <Redirect to="/endgame"/>:null}
+    if (this.state.seconds === 0) {
+      return <Redirect to='/endgame'/>
+    }
 
     return(
+      
       <div>
         <h2 className="countdown" style={warning}>{timer}</h2>
       </div>

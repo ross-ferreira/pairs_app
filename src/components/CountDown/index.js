@@ -11,13 +11,13 @@ const mapStateToProps = (state) =>{
 }
 
 
-const mapDispatchToProps = (dispatch) => {
+// const mapDispatchToProps = (dispatch) => {
 
-    // return {
-    //     timerExpired: () => {
-    //         dispatch(increment())
-    //     }
-    // }
-}
+//     return {
+//         timerExpired: () => {
+//             dispatch(increment())
+//         }
+//     }
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CountDown);
+export default connect(mapStateToProps, null)(CountDown);
