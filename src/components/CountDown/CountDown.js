@@ -24,7 +24,25 @@ class CountDown extends Component {
     return obj;
   }
 
+  setTimerInterval(){
+    if(this.props.selectedOption === "easy"){
+      return this.setState({
+        seconds: 60,
+      });
+    } else if (this.props.selectedOption === "modest"){
+      return this.setState({
+        seconds: 40,
+      });
+    }
+    else if (this.props.selectedOption === "modest"){
+      return this.setState({
+        seconds: 25,
+      });
+    }
+  }
+
   componentDidMount() {
+    this.setTimerInterval();
     this.startTimer();
   }
 

@@ -1,4 +1,6 @@
 export default  {
+    playername:"",
+    selectedOption: "easy",
     score:0,
     cards: [
         {

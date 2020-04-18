@@ -1,4 +1,5 @@
 import initial from '../data/initial';
+import { difficulty } from './actions';
 
 const counterIncrease = state => ({ ...state, count: state.count + 1 });
 
@@ -16,6 +17,10 @@ const pairs = (state,{valuePair}) => ({ ...state, score: valuePair })
 
 const scoreIncr = (state,{scoreVal}) => ({ ...state, score: scoreVal })
 
+const diffclty = (state,{selectedDiff}) => ({ ...state, selectedOption: selectedDiff })
+
+const updPlyrNm = (state,{valuePlayerName}) => ({ ...state, playername: valuePlayerName })
+
 
 
 export default (state, action) => {
@@ -25,6 +30,8 @@ export default (state, action) => {
         case "SHUFFLE": return shuffleCards(state,action);
         case "CLICKSTATUS": return pairs(clickUpdate(state,action),action);;
         case "SCOREUPDATE": return scoreIncr(state,action);
+        case "DIFFICULTY": return diffclty(state,action);
+        case "PLAYERNAME": return updPlyrNm(state,action);
         case "RESET": return initial;
         default: return state;
         }

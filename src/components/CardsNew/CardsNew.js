@@ -13,6 +13,7 @@ const CardsNew = ({
     handleShuffle,
     handleCardClick,
     handleScore,
+    selectedOption,
 }) => {
 
     useEffect(() => {
@@ -91,7 +92,7 @@ const CardsNew = ({
                 SCORE: {updateScore()}
             </div>
             <div class="timer">
-                <CountDown />
+                <CountDown selectedOption= {selectedOption}/>
             </div>
             <div class="card-deck">
                 {cards.map((item, index) => (

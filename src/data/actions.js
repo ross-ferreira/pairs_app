@@ -27,6 +27,21 @@ export const shuffleCards = (valueShuff) => {
       type: 'SCOREUPDATE', 
       scoreVal: scoreVal,
     }; 
+  };
+  
+  export const updateDifficulty = (selectedDiff) => {
+    return {
+      type: 'DIFFICULTY', 
+      selectedDiff: selectedDiff,
+    }; 
   }; 
+
+  export const updatePlayerName = (valuePlayerName) => {
+    return {
+      type: 'PLAYERNAME', 
+      valuePlayerName: valuePlayerName,
+    }; 
+  }; 
+
 
   

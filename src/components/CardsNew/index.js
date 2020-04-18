@@ -12,7 +12,8 @@ const mapStateToProps = (state) => {
     return {
         // srcImage: state.images[(state.counter -1)].url,
         cards:state.cards,
-        score:state.score,
+        score:state.score,  
+        selectedOption:state.selectedOption,
     }
 }
 
