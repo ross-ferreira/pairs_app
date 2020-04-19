@@ -1,4 +1,5 @@
 export default  {
+    tooManyClicks:false,
     playername:"",
     selectedOption: "easy",
     score:0,

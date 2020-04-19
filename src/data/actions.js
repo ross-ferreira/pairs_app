@@ -43,5 +43,11 @@ export const shuffleCards = (valueShuff) => {
     }; 
   }; 
 
+  export const updateTooMNYClicks = () => {
+    return {
+      type: "CLICKERCHECKER",
+    }; 
+  };
+
 
   

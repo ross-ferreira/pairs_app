@@ -6,12 +6,13 @@ import { connect } from 'react-redux';
 
 import {reset} from '../../data/actions'
 
-const mapStateToProps = ({cards,score}) => {
+const mapStateToProps = ({cards,score,playername}) => {
     
     return {
         // srcImage: state.images[(state.counter -1)].url,
         cards:cards,
         score:score,
+        playername:playername,
     }
 
 }
@@ -25,18 +26,18 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-const ScorePage =({cards,score,handleReset}) => {
+const ScorePage =({cards,score,handleReset,playername}) => {
 
     return (
         <>
         <div class="final-score-cont">
-            <h1> Well Done</h1>
+            <h1> Well Done {playername} </h1>
             <h2> Your Score Is:</h2>
             <div class="score">{score}</div>
         </div>
         <br/>
         <Link to="/">
-        <button onClick={handleReset}>NEW GAME</button>
+        <button class= "but-new-game" onClick={handleReset}>NEW GAME</button>
         </Link>
         </>
     );

@@ -14,6 +14,7 @@ const CardsNew = ({
     handleCardClick,
     handleScore,
     selectedOption,
+    playername,
 }) => {
 
     useEffect(() => {
@@ -53,6 +54,7 @@ const CardsNew = ({
             })
         };
         console.log(newArr);
+
         return cards;
     }
 
@@ -89,14 +91,19 @@ const CardsNew = ({
         </pre> */}
             {(updateScore() > 3)? <Redirect to="/endgame"/>:null}
             <div class="score">
-                SCORE: {updateScore()}
+                {playername}'s Score:{updateScore()}
             </div>
             <div class="timer">
                 <CountDown selectedOption= {selectedOption}/>
             </div>
             <div class="card-deck">
                 {cards.map((item, index) => (
-                    <PairCard key={item.id} onCard={() => handleClick(index)} item={item} index={index} />
+                    <PairCard 
+                        key={item.id} 
+                        onCard={() => handleClick(index)} 
+                        cards={cards} 
+                        item={item} 
+                        index={index} />
                 ))}
             </div>
             <Link to="/endgame">

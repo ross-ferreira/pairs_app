@@ -14,6 +14,7 @@ const mapStateToProps = (state) => {
         cards:state.cards,
         score:state.score,  
         selectedOption:state.selectedOption,
+        playername:state.playername,
     }
 }
 

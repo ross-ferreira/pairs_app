@@ -21,7 +21,7 @@ const diffclty = (state,{selectedDiff}) => ({ ...state, selectedOption: selected
 
 const updPlyrNm = (state,{valuePlayerName}) => ({ ...state, playername: valuePlayerName })
 
-
+const clickRchecker = state => ({ ...state, tooManyClicks: !state.tooManyClicks});
 
 export default (state, action) => {
   
@@ -32,6 +32,7 @@ export default (state, action) => {
         case "SCOREUPDATE": return scoreIncr(state,action);
         case "DIFFICULTY": return diffclty(state,action);
         case "PLAYERNAME": return updPlyrNm(state,action);
+        case "CLICKERCHECKER": return clickRchecker(state);
         case "RESET": return initial;
         default: return state;
         }
