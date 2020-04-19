@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 
 import PairCard from '../PairCard';
+
 import CountDown from "../CountDown/";
 
 const CardsNew = ({
@@ -40,20 +41,51 @@ const CardsNew = ({
         //find new clicked items
         let newArr = [];
         cards.filter((item, index) => {
-            if (item.counter == true && item.paired == false) {
+            if (item.counter === true && item.paired === false) {
                 return newArr.push(item);
             }
         });
         //if those new clicked items have same name then set item.paired = true
-        if (newArr.length >= 2) {
+        if (newArr.length >= 2 && newArr.length < 3) {
             cards.map((item, index) => {
-                if (item.counter == true && (newArr[0].name == newArr[1].name)) {
+                if (item.counter === true && (newArr[0].name === newArr[1].name)) {
                     return item.paired = true;
                 } else
                     return item;
             })
         };
         console.log(newArr);
+
+        let newArr2 = [];
+        cards.filter((item, index) => {
+            if (item.counter === true) {
+                return newArr2.push(item);
+            }
+        });
+
+        if (newArr2.length >= 3) {
+            cards.map((item, index) => {
+                if (item.counter === true) {
+                    return item.counter = !item.counter;
+                } else
+                    return item;
+            })
+        };
+
+
+        // if (newArr2.length >= 2) {
+        //     setTimeout(() => {
+        //         cards.map((item, index) => {
+        //             if (item.counter === true) {
+        //                 return item.counter = !item.counter;
+        //             } else
+        //                 return item;
+        //         })
+        //       }, 1000);
+        // };
+
+
+
 
         return cards;
     }
@@ -63,7 +95,7 @@ const CardsNew = ({
     const updateScore = () => {
         let arr2 = [];
         cards.filter((item, index) => {
-            if (item.paired == true) {
+            if (item.paired === true) {
                 return arr2.push(item.paired);
             }
         });

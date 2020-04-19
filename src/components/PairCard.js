@@ -31,7 +31,7 @@ const PairCard =({index,item, onCard,cards,handleMultiClick}) => {
     const allowClick = () => {
         let clicked=cards.filter(item => item.counter == true);
         let pairs=cards.filter(item => item.paired == true);
-        return (clicked.length-pairs.length < 3);
+        return (clicked.length-pairs.length < 4);
     }
 
     const styles= {
