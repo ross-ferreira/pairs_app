@@ -9,8 +9,9 @@ class Header extends Component {
             <>
                 <header className="main-header">
 
-                    <h4 className="main-title">RPF developments presents...</h4>
-                    <h1 className="main-title">Lets get Pairing</h1>
+                    {/* <h4 className="main-title">RPF developments presents...</h4> */}
+                    <h1 class="main-title">Pear Challenge</h1>
+                    <h2 class="sub-main-title">Lets get Pearing</h2>
 
                 </header>
             </>

@@ -7,6 +7,8 @@ const counterIncrease = state => ({ ...state, count: state.count + 1 });
 
 // const shuffleCards = (state) => ({ ...state, cards: shuffle(state.cards)})
 
+const setQuestionsReducer = (state,{data}) => ({ ...state, cards: data })
+
 const shuffleCards = (state,{arrayShuff}) => ({ ...state, cards: arrayShuff })
 
 const clickUpdate = (state,{cardClick}) => ({ ...state, cards: cardClick })
@@ -33,6 +35,7 @@ export default (state, action) => {
         case "DIFFICULTY": return diffclty(state,action);
         case "PLAYERNAME": return updPlyrNm(state,action);
         case "CLICKERCHECKER": return clickRchecker(state);
+        case "setCards": return setQuestionsReducer(state,action);
         case "RESET": return initial;
         default: return state;
         }

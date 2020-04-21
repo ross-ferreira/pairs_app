@@ -34,7 +34,7 @@ class CountDown extends Component {
         seconds: 40,
       });
     }
-    else if (this.props.selectedOption === "modest"){
+    else if (this.props.selectedOption === "hardest"){
       return this.setState({
         seconds: 25,
       });

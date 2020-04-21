@@ -4,6 +4,8 @@ import CardsNew from './CardsNew';
 
 import { shuffleCards, updateClick,updateScore } from '../../data/actions';
 
+import { getData } from '../../data/actions/api'
+
 import history from "../../history";
 
 
@@ -31,6 +33,9 @@ const mapDispatchToProps = (dispatch) => {
         handleScore:(scoreVal)=>{
             dispatch (updateScore(scoreVal))
         },
+        getDataSet: () => {
+            dispatch(getData())
+        }
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(CardsNew);

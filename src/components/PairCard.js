@@ -44,15 +44,16 @@ const PairCard =({index,item, onCard,cards,handleMultiClick}) => {
             backgroundPosition: 'center',
             display: 'inline-block',
             opacity: (item.paired === true ? '0': '1'),
-            border: 'grey solid 3px',
+            border: 'grey solid 2px',
             padding: '5px',
+            borderRadius:'3px',
             
           }
 
     return (
         <>
             <p  onClick={allowClick() ? () => onCard(index):handleMultiClick } style={styles}>
-                {item.counter === false ? 'Clicked!!!!' : 'Not Clicked!!!!'}{item.name}
+                {/* {item.counter === false ? 'Clicked!!!!' : 'Not Clicked!!!!'}{item.name} */}
             </p>
 
         </>

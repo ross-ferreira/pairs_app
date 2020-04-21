@@ -30,15 +30,17 @@ const ScorePage =({cards,score,handleReset,playername}) => {
 
     return (
         <>
-        <div class="final-score-cont">
-            <h1> Well Done {playername} </h1>
-            <h2> Your Score Is:</h2>
-            <div class="score">{score}</div>
-        </div>
-        <br/>
-        <Link to="/">
-        <button class= "but-new-game" onClick={handleReset}>NEW GAME</button>
-        </Link>
+        <section className="score-page">
+            <div class="final-score-cont">
+                <h1> Well Done <strong>{playername}</strong> </h1>
+                <h2> Your Score Is:</h2>
+                <div  className="score-sp">{score}</div>
+            </div>
+            <br/>
+            <Link to="/">
+            <button class= "but-new-game" onClick={handleReset}>New Game</button>
+            </Link>
+        </section>
         </>
     );
 }

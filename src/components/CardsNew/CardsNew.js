@@ -9,6 +9,7 @@ import PairCard from '../PairCard';
 import CountDown from "../CountDown/";
 
 const CardsNew = ({
+    getDataSet,
     cards,
     score,
     handleShuffle,
@@ -17,10 +18,14 @@ const CardsNew = ({
     selectedOption,
     playername,
 }) => {
+    useEffect(() => {
+        getDataSet();
+    }, []);
 
     useEffect(() => {
         handleShuffle(shuffle());
     }, []);
+
         
     const shuffle = () => {
         let arrShuff = [...cards]
@@ -33,7 +38,6 @@ const CardsNew = ({
         newCards[index] = { ...cards[index] }
         newCards[index].counter = !cards[index].counter;
         return newCards
-        console.log(index)
     };
 
 
@@ -71,20 +75,6 @@ const CardsNew = ({
                     return item;
             })
         };
-
-
-        // if (newArr2.length >= 2) {
-        //     setTimeout(() => {
-        //         cards.map((item, index) => {
-        //             if (item.counter === true) {
-        //                 return item.counter = !item.counter;
-        //             } else
-        //                 return item;
-        //         })
-        //       }, 1000);
-        // };
-
-
 
 
         return cards;
@@ -139,7 +129,7 @@ const CardsNew = ({
                 ))}
             </div>
             <Link to="/endgame">
-                <button type="submit" onClick={handleScore(updateScore())}> END GAME </button>
+                <button type="submit" className="btn btn-outline-dark" onClick={handleScore(updateScore())}> End Game </button>
             </Link>
 
 
@@ -148,6 +138,22 @@ const CardsNew = ({
 }
 
 export default CardsNew;
+
+
+        // if (newArr2.length >= 2) {
+        //     setTimeout(() => {
+        //         cards.map((item, index) => {
+        //             if (item.counter === true) {
+        //                 return item.counter = !item.counter;
+        //             } else
+        //                 return item;
+        //         })
+        //       }, 1000);
+        // };
+
+
+
+
 
 // ...state, 
 // cards:[
@@ -176,20 +182,6 @@ export default CardsNew;
 //       }
 //     }
 //   }
-// state = {   
-//   score:0,
-//   cards:[
-//       {
-//           id: 1,
-//           name: "birds",
-//           paired: false,
-//           url: "https://www.publicdomainpictures.net/pictures/300000/velka/feathers-birds-vintage-art.jpg",
-//           counter: false,
-//       }
-//     ]
-// }
-
-
 
 // // Two points for Ravenclaw
 // return {
