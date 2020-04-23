@@ -12,6 +12,7 @@ export const getData = () => (dispatch) =>{
     });
 }
 
+
 // import axios from '../axios';
 
 

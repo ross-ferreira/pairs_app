@@ -18,15 +18,15 @@ const CardsNew = ({
     selectedOption,
     playername,
 }) => {
+
+    const [loading,setLoading]= useState(true)
+   
     useEffect(() => {
         getDataSet();
+        setLoading(false);
+        // handleShuffle(shuffle());
     }, []);
-
-    useEffect(() => {
-        handleShuffle(shuffle());
-    }, []);
-
-        
+    
     const shuffle = () => {
         let arrShuff = [...cards]
         arrShuff.sort(() => Math.random() - 0.5)
@@ -82,6 +82,9 @@ const CardsNew = ({
 
     console.log("pairs", findPair());
 
+
+    
+
     const updateScore = () => {
         let arr2 = [];
         cards.filter((item, index) => {
@@ -115,19 +118,22 @@ const CardsNew = ({
             <div class="score">
                 {playername}'s Score:{updateScore()}
             </div>
-            <div class="timer">
-                <CountDown selectedOption= {selectedOption}/>
-            </div>
-            <div class="card-deck">
-                {cards.map((item, index) => (
-                    <PairCard 
-                        key={item.id} 
-                        onCard={() => handleClick(index)} 
-                        cards={cards} 
-                        item={item} 
-                        index={index} />
-                ))}
-            </div>
+            {loading? <div><h1>Loading......</h1></div>:
+            <div className="loaded-items">
+                <div class="timer">
+                    <CountDown selectedOption= {selectedOption}/>
+                </div>
+                <div class="card-deck">
+                    {cards.map((item, index) => (
+                        <PairCard 
+                            key={item.id} 
+                            onCard={() => handleClick(index)} 
+                            cards={cards} 
+                            item={item} 
+                            index={index} />
+                    ))}
+                </div>
+            </div>}
             <Link to="/endgame">
                 <button type="submit" className="btn btn-outline-dark" onClick={handleScore(updateScore())}> End Game </button>
             </Link>

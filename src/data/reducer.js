@@ -3,13 +3,20 @@ import { difficulty } from './actions';
 
 const counterIncrease = state => ({ ...state, count: state.count + 1 });
 
-// const shuffle = arr => arr.sort(() => Math.random() - 0.5);
+  const shuffle = (data) => {
+    let array = [...data]
+    for(let i = (array.length -1) ; i > 0; i--){
+        const j = Math.floor(Math.random() * i)
+        const temp = array[i]
+        array[i] = array[j]
+        array[j] = temp
+      }
+    return array
+};
 
-// const shuffleCards = (state) => ({ ...state, cards: shuffle(state.cards)})
+const setQuestionsReducer = (state,{data}) => ({ ...state, cards: shuffle(data) })
 
-const setQuestionsReducer = (state,{data}) => ({ ...state, cards: data })
-
-const shuffleCards = (state,{arrayShuff}) => ({ ...state, cards: arrayShuff })
+// const shuffleCards = (state,{arrayShuff}) => ({ ...state, cards: arrayShuff })
 
 const clickUpdate = (state,{cardClick}) => ({ ...state, cards: cardClick })
 
@@ -29,13 +36,13 @@ export default (state, action) => {
   
     switch (action.type) {
         case "INCREMENT": return counterIncrease(state);
-        case "SHUFFLE": return shuffleCards(state,action);
+        case "setCards": return setQuestionsReducer(state,action);
+        // case "SHUFFLE": return shuffleCards(state,action);
         case "CLICKSTATUS": return pairs(clickUpdate(state,action),action);;
         case "SCOREUPDATE": return scoreIncr(state,action);
         case "DIFFICULTY": return diffclty(state,action);
         case "PLAYERNAME": return updPlyrNm(state,action);
         case "CLICKERCHECKER": return clickRchecker(state);
-        case "setCards": return setQuestionsReducer(state,action);
         case "RESET": return initial;
         default: return state;
         }
@@ -50,6 +57,11 @@ console.log("init",initial)
     //     }
 
 
+// const shuffle = (data) => {
+//     let arrShuff = [...data]
+//     arrShuff.sort(() => Math.random() - 0.5)
+//     return arrShuff
+// };
 
 
 // const cardStatus = (index) => {
@@ -70,3 +82,9 @@ console.log("init",initial)
 //     let tot= (arr2.length / 2);
 //     ({ score: tot});
 // }
+
+
+
+// const shuffle = arr => arr.sort(() => Math.random() - 0.5);
+
+// const shuffleCards = (state) => ({ ...state, cards: shuffle(state.cards)})
