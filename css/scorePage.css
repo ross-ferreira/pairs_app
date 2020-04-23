@@ -1,0 +1,23 @@
+.final-score-cont {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+}
+.score-page {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.score-sp{
+    color: yellow;
+    background-color: black;
+    font-size: 3em;
+    padding: 10px;
+    border-radius: 20%;
+    margin: 15px;
+}

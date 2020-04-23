@@ -1,0 +1,61 @@
+.rules-cont {
+    display:flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.cup-form-table{
+
+    display: grid;
+    grid-template-rows: repeat(3, 0.5fr);
+    grid-template-columns: repeat(2, 0.4fr);
+    justify-content: center;
+    /* display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center; */
+}
+
+#alignnone {
+	display: inline-block;
+    height: auto; 
+    width: 25vw;
+}
+
+.size-full,.pong-setup{
+    height: auto; 
+    width: 35vw;
+}
+
+.pong-setup{
+    height: 35vw; 
+    width: auto;
+    margin: 20px
+}
+
+.main-cont-rules{
+    text-align: center;
+}
+
+
+
+@media screen and (max-width: 450px) {
+
+    #rules-h1{
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .rules-cont,.dek {
+        font-size: 0.65rem;
+        padding: 2px;
+    }
+
+    #rules-h4 {
+        font-size: 1rem;
+        padding: 2px;
+    }
+}
