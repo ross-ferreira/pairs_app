@@ -32,6 +32,8 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
+
+
 const WelcomePage = ({
     selectedOption,
     handleOptionChange,
