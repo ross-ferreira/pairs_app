@@ -22,11 +22,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 }
 
-
-
 const PairCard =({index,item, onCard,cards,handleMultiClick}) => {
-
- 
 
     const allowClick = () => {
         let clicked=cards.filter(item => item.counter == true);

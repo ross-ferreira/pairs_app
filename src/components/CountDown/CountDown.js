@@ -27,16 +27,16 @@ class CountDown extends Component {
   setTimerInterval(){
     if(this.props.selectedOption === "easy"){
       return this.setState({
-        seconds: 60,
+        seconds: 120,
       });
     } else if (this.props.selectedOption === "modest"){
       return this.setState({
-        seconds: 40,
+        seconds: 90,
       });
     }
-    else if (this.props.selectedOption === "hardest"){
+    else if (this.props.selectedOption === "hard"){
       return this.setState({
-        seconds: 25,
+        seconds: 60,
       });
     }
   }
