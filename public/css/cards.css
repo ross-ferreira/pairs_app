@@ -1,0 +1,50 @@
+.card-deck-cont {
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 0.2fr);
+    grid-gap: 10px;
+    margin: 20px;
+    justify-items: center;
+    
+
+}
+
+.deck-card{
+    width: 10vw;
+    height: 16vh; 
+    border: grey solid 2px;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+.score{
+    font-size: 1.5em;
+    margin: 10px;
+}
+
+.btn-outline-dark {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .deck-card{
+        width: 15vw;
+        height: 12vh; 
+
+    }
+
+}
+
+@media screen and (max-width: 450px) {
+    .deck-card{
+        width: 15vw;
+        height: 12vh; 
+
+    }
+
+    .score{
+        text-align: center;
+    }
+}
+

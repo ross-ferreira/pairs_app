@@ -68,9 +68,9 @@ const WelcomePage = ({
                         <div className="rules-cont">
                             <p class="rules-header">How to play:</p>
                             <ol>
-                                <li>1: Enter playername</li>
-                                <li>2: Select diffuclty of game</li>
-                                <li>3: Lift playing cards by clicking them</li>
+                                <li>1: Enter Playername</li>
+                                <li>2: Select difficulty of game</li>
+                                <li>3: Lift playing cards by clicking on them</li>
                                 <li>4: Try to remember their locations</li>
                                 <li>5: Try lift all the pairs of cards before the time ends</li>
                                 <li>6: Have Fun</li>

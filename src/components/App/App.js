@@ -24,7 +24,6 @@ class App extends React.Component{
     return(
       <Fragment>
       <Router>
-        <Footer/>
         <Route exact path="/">
           <HeaderHome/>
           <WelcomePage/>
@@ -37,6 +36,7 @@ class App extends React.Component{
           <Header/>
           <ScorePage/>
         </Route>
+        <Footer/>
       </Router>
     </Fragment>
     )

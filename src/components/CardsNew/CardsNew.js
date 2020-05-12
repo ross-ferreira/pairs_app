@@ -114,8 +114,11 @@ const CardsNew = ({
             {/* <pre>
             {JSON.stringify(this.state.cards, null, 2)}
         </pre> */}
-            {(updateScore() > 3)? <Redirect to="/endgame"/>:null}
-            <div class="score">
+            <Link to="/endgame">
+                <button type="submit" className="btn btn-outline-dark" onClick={handleScore(updateScore())}> End Game </button>
+            </Link>
+            {(updateScore() > 9)? <Redirect to="/endgame"/>:null}
+            <div className="score">
                 {playername}'s Score:{updateScore()}
             </div>
             {loading? <div><h1>Loading......</h1></div>:
@@ -123,7 +126,7 @@ const CardsNew = ({
                 <div class="timer">
                     <CountDown selectedOption= {selectedOption}/>
                 </div>
-                <div class="card-deck">
+                <div className="card-deck-cont">
                     {cards.map((item, index) => (
                         <PairCard 
                             key={item.id} 
@@ -134,9 +137,7 @@ const CardsNew = ({
                     ))}
                 </div>
             </div>}
-            <Link to="/endgame">
-                <button type="submit" className="btn btn-outline-dark" onClick={handleScore(updateScore())}> End Game </button>
-            </Link>
+
 
 
         </>

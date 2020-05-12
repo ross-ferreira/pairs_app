@@ -31,24 +31,17 @@ const PairCard =({index,item, onCard,cards,handleMultiClick}) => {
     }
 
     const styles= {
-            margin: '20px',
-            width: '200px',
-            height: '200px',
+
             backgroundImage: (item.counter === false ? "url(" + "https://i.ya-webdesign.com/images/pear-clipart-yellow-pear-23.png" + ")": `url("${item.url}")`),
             backgroundSize: 'contain',
             backgroundRepeat  : 'no-repeat',
             backgroundPosition: 'center',
-            display: 'inline-block',
             opacity: (item.paired === true ? '0': '1'),
-            border: 'grey solid 2px',
-            padding: '5px',
-            borderRadius:'3px',
-            
           }
 
     return (
         <>
-            <p  onClick={allowClick() ? () => onCard(index):handleMultiClick } style={styles}>
+            <p  className="deck-card" onClick={allowClick() ? () => onCard(index):handleMultiClick } style={styles}>
                 {/* {item.counter === false ? 'Clicked!!!!' : 'Not Clicked!!!!'}{item.name} */}
             </p>
 
