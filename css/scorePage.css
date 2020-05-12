@@ -11,13 +11,14 @@
     flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
+    min-height: calc(100vh - 107px - 64px);
 }
 
 .score-sp{
-    color: yellow;
-    background-color: black;
+    color: #CBD121;
     font-size: 3em;
     padding: 10px;
-    border-radius: 20%;
+    border-radius: 8px;
     margin: 15px;
+    border: dotted black 3px;
 }
